@@ -1,7 +1,7 @@
 <template>
    <main>
-    <div class="Important">
-     <p> Вы найдете здесь дом своей мечты </p> 
+    <div class="important">
+     <h1> Вы найдете здесь дом своей мечты </h1>
     </div>
   <div id="app">
     <v-carousel v-model="model" hide-delimiter-background cycle="true" interval="4000" height="610">
@@ -30,18 +30,42 @@
     </v-carousel>
     <ul class="main__elements">
 <li class="main__object">Самый надежный агрегатор</li>
-<li class="main__object">Недвижимость по самым низким ценам</li>
+<li id="ggg" class="main__object"> <a class="a" href="#loopa">Недвижимость по самым низким ценам </a> </li>
 <li class="main__object">  <a class="a" href="#ggg"> Тысячи положительных отзывов </a> </li>
   </ul>
 
-  <ul id="ggg" class="main__reviews">
-<li class="main__review">Отзыв1</li>
-<li class="main__review">Отзыв2</li>
-<li class="main__review">Отзыв3</li>
-<li class="main__review">Отзыв4</li>
-<li class="main__review">Отзыв5</li>
-<li class="main__review">Отзыв6</li>
-  </ul>
+  <!-- <ul class="main__reviews">
+<li class="main__review">Простая регистрация и размещение объявлений, удобный личный кабинет, бесплатно</li>
+<li class="main__review">Продажа и покупка недвижимости самостоятельно - легко! </li>
+<li class="main__review">Удобный интерфейс, много фильтров, бесплатный просмотр всех объявлений</li>
+<li class="main__review">Не вижу никаких минусов, всё быстро и удобно</li>
+<li class="main__review">Самое большое количество объектов, возможность на месте рассчитать ипотеку</li>
+<li class="main__review">Доступно всем, кто хочет купить, продать, сдать или снять жильё. Фото.</li>
+  </ul> -->
+  
+<ul class="main__reviews">
+<li class="main__review" v-for="comment in comments" :key="comment.index">
+        <div class="commentspair">
+          <p class="commentsname">{{comment.name}}</p>
+        </div>
+        <p class="comments__text">{{comment.message}}</p>
+      </li>
+</ul>
+
+  <form class="form">
+      <label for="name" class="formlabel">Имя</label>
+      <input class="forminput" v-model="name" id="name" type="text">
+      <label for="comment" class="formlabel">Комментарий</label>
+      <textarea class="forminput" v-model="message" id="comment" type="text"></textarea>
+      <button type="button" v-on:click="storeComment" class="form__button">Отправить комментарий</button>
+      <!-- <button type="button" v-on:click="storeComment" class="form__button">Очистить</button> -->
+    </form>
+
+  <div class="photos">
+   <div class="imgs"><img class="photo" src="/Home1.jpg" alt=""> <p>Пентхаус, 150м²</p> </div> 
+    <div class="imgs"><img id="loopa" class="photo" src="/Home2.jpg" alt=""> <p>Частный дом, 80м²</p> </div>
+  <div class="imgs"><img class="photo" src="/Home3.jpg" alt=""> <p>Квартира, 65м²</p>  </div>
+  </div>
 </div>
   </main>
 </template>
@@ -54,11 +78,19 @@ export default {
     data: () => ({
       model: undefined,
       allImages: images,
+      name: '',
+      message: '',
+      comments: [{name: "Наталья", message: "Новый комментарий"},],
   }),
   methods: {
     ...mapActions({
       fetchImages: 'fetchImages',
-    }),
+      }),
+    storeComment: function() {
+      this.comments.push({name: this.name, message: this.message});
+      this.name = ''
+      this.message = ''
+    }
   },
 }
 </script>
@@ -66,10 +98,7 @@ export default {
 <style lang="scss" scoped>
 
 .main{
-  .Important{
-    display: flex;
-    margin-top: 50px;
-  }
+  
 &__scroll{
   height:500px;
   display: flex;
@@ -113,21 +142,22 @@ height: 500px;
   &__reviews{
     list-style-type: none;
   display: flex;
-  justify-content: center;
   margin: 300px 0;
   gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
   
   }
 
   &__review{
-    display: block;
-  width: 33.3333%;
-  background-color: rgb(44, 75, 139);
+  width: 189px;
+  height: 300px;
+  background-color: rgb(216, 229, 255);
   border-radius: 20px;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 45px;
   text-align: center;
-  font-size: 25px;
+  font-size: 17px;
   margin: 0 auto;
   transition: 300ms;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
@@ -146,4 +176,43 @@ main{
   margin: auto;
   caret-color: transparent;
 }
+.important{
+    margin-top: 80px;
+    text-align: center;
+    font-size: 21px;
+  }
+.photos{
+  display: flex;
+  justify-content: center;
+
+}
+  .photo{
+    width: 400px;
+    height: 300px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    margin-top: 130px;
+    flex-wrap: wrap;
+  }
+
+  .imgs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 100px;
+  }
+
+  .form{
+    display: flex;
+  }
+
+  .formlable{
+  
+  }
+
+  .forminput{
+    border: 1px  solid black;
+  }
 </style>

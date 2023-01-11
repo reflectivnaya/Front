@@ -15,7 +15,7 @@
     89250015158
     </div>
     <div class="ils">
-    89250015158
+    Подольск
     </div>
 </div>
 </div>
@@ -29,8 +29,7 @@ export default {
 
 <style>
 .ils {
-display: flex;
-  
+  width: 50%;
   background-color: rgb(160, 171, 192);
   border-radius: 15px;
   color: white;
@@ -38,27 +37,29 @@ display: flex;
   text-align: center;
   font-size: 25px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  margin: 30px auto;
-  margin-top: 90px;
+
   
   caret-color: transparent;
 }
 .avatar {
-    margin-top: 100px;
-    margin-left: 200px;
     height: 300px;
     border-radius: 70px;
 }
 
 .mom{
+  min-height: 80vh;
+  margin-top: 100px;
     display: flex;
+    justify-content: center;
+    gap: 40px;
 }
 
 .rar{
     display: flex;
     flex-direction: column;
     width: 50%;
-    justify-content: center;
+    justify-content: start;
+    gap: 40px;
     
     
 }
