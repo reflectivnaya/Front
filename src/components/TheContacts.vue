@@ -20,7 +20,7 @@ export default {
 
 <style>
 .uwu {
-    display: block;
+  display: block;
   width: 33.3333%;
   background-color: rgb(160, 171, 192);
   border-radius: 15px;
