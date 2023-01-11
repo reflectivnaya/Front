@@ -1,5 +1,8 @@
 <template>
    <main>
+    <div class="Important">
+     <p> Вы найдете здесь дом своей мечты </p> 
+    </div>
   <div id="app">
     <v-carousel v-model="model" hide-delimiter-background cycle="true" interval="4000" height="610">
       <v-carousel-item
@@ -28,7 +31,16 @@
     <ul class="main__elements">
 <li class="main__object">Самый надежный агрегатор</li>
 <li class="main__object">Недвижимость по самым низким ценам</li>
-<li class="main__object">Тысячи положительных отзывов</li>
+<li class="main__object">  <a class="a" href="#ggg"> Тысячи положительных отзывов </a> </li>
+  </ul>
+
+  <ul id="ggg" class="main__reviews">
+<li class="main__review">Отзыв1</li>
+<li class="main__review">Отзыв2</li>
+<li class="main__review">Отзыв3</li>
+<li class="main__review">Отзыв4</li>
+<li class="main__review">Отзыв5</li>
+<li class="main__review">Отзыв6</li>
   </ul>
 </div>
   </main>
@@ -54,6 +66,10 @@ export default {
 <style lang="scss" scoped>
 
 .main{
+  .Important{
+    display: flex;
+    margin-top: 50px;
+  }
 &__scroll{
   height:500px;
   display: flex;
@@ -94,6 +110,34 @@ height: 500px;
     box-shadow: 0 0 10px;
     box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.5)
   }
+  &__reviews{
+    list-style-type: none;
+  display: flex;
+  justify-content: center;
+  margin: 300px 0;
+  gap: 20px;
+  
+  }
+
+  &__review{
+    display: block;
+  width: 33.3333%;
+  background-color: rgb(44, 75, 139);
+  border-radius: 20px;
+  color: white;
+  padding: 45px;
+  text-align: center;
+  font-size: 25px;
+  margin: 0 auto;
+  transition: 300ms;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  }
+}
+
+.a{
+  text-decoration: none;
+  color: white;
 }
 
 main{

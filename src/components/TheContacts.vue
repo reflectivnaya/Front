@@ -7,7 +7,7 @@
     toptyann@yandex.ru
   </div>
   <div class="uwu">
-   a ул. Некрасовская, 3А
+   ул. Некрасовская, 3А
   </div>
 </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
-    <div class="yyy">
-        <v-footer color="black"
+        <v-footer color="black" 
+        absolute="true"
         width="100px"
         v-bind="localAttrs"
         :padless="padless"
@@ -32,7 +32,6 @@
           </v-card-text>
         </v-card>
       </v-footer>
-    </div>
 </template>
 
 <script>
@@ -43,6 +42,7 @@ export default {
 
 <style>
 .yyy{
-  caret-color: transparent;
+  position: absolute;
+  bottom: 0;
 }
 </style>

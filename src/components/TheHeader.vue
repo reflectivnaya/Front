@@ -23,7 +23,7 @@
               </router-link>
             </li>
             <li class="header__item">
-              <router-link to="/registration" class="header__link">
+              <router-link to="" class="header__link">
                 Выйти
               </router-link>
             </li>
